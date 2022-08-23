@@ -5,6 +5,6 @@ module.exports = {
 	//PaginatedEmbed: require("./structures/PaginatedEmbed.js"),
 
 	//Randomness
-	RandomKeyUtils: require("./modules/RandomKeyUtils.js")
-	
+	RandomKeyUtils: require('./modules/RandomKeyUtils.js'),
+
 };
