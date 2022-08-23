@@ -10,8 +10,8 @@ const chalk = require('chalk');
 const configs = require('./configs/client.json');
 const clientId = configs.clientId
 
-const Token = process.env['BOT_TOKEN'];
 //	const DevToken = process.env['DEV_BOT_TOKEN'];
+const Token = process.env['BOT_TOKEN'];
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -80,6 +80,10 @@ client.on('guildCreate', async guild => {
 		.then(() => console.log('Successfully registered application commands.'))
 		.catch(console.error);
 })
+
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
 
 if (configs.DevStatus === 2) {
 	client.login(Token);
