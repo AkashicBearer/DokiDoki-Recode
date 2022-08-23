@@ -1,0 +1,11 @@
+{
+	
+	"EmbedFooter": "DokiDoki Project | v2.0.0",
+	"EmbedFooterIcon": "https://cdn.discordapp.com/avatars/435901305030967306/4d87e8732779a8a37c72af410ff322a3.png?size=256",
+
+	"EmbedColorPrep": "000000",
+	"EmbedColorReady": "32CD32",
+	"EmbedColorError": "ff0000",
+	"EmbedColorAdmin": "a"
+	
+}

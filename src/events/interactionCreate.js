@@ -1,24 +1,27 @@
+/*const chalk = require('chalk');
+const config = require(`../configs/client.json`);
+
 module.exports = {
 
 	name: 'interactionCreate',
-	async execute(interaction) {
-		
+	once: false,
+	async execute(client, interaction) {
+
 		if (!interaction.isChatInputCommand()) return;
-		
+
 		const command = client.commands.get(interaction.commandName);
-	
+
 		if (!command) return;
-	
+
 		try {
-			
+
 			await command.execute(interaction);
-			
+
 		} catch (error) {
-			
+
 			console.error(error);
-			
 			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-			
+
 		}
 	}
-};
+};*/
