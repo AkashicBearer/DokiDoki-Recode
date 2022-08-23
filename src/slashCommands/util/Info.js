@@ -1,18 +1,12 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const EmbedConfig = require('../configs/embeds.json');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
+const EmbedConfig = require('../../configs/embeds.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('info')
-		.setDescription('Gives information on whats happening right now to the bot.')
-		.setDMPermission(false),
-	/**
-   *
-   * @param {Client} client
-   * @param {Interaction} interaction
-   */
-	async execute(interaction) {
-
+	name: 'info',
+	description: "Sends information on the current situation",
+	type: ApplicationCommandType.ChatInput,
+	cooldown: 3000,
+	run: async (client, interaction) => {
 		try {
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
@@ -26,9 +20,7 @@ module.exports = {
 			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 			await interaction.editReply({ content: ' ', embeds: [InfoEmbed] });
 
-		}
-		catch (e) {
-
+		} catch (e) {
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')
@@ -37,9 +29,6 @@ module.exports = {
 			await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
 
 			console.log(e);
-const mySecret = process.env['DEV_BOT_TOKEN']
 		}
-
-	},
-
+	}
 };

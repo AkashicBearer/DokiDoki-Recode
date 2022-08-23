@@ -2,10 +2,10 @@
   "name": "dokidoki",
   "version": "2.0.0",
   "description": "Official Recode of DokiDoki Discord Bot",
-  "main": "src/DokiDoki.js",
+  "main": "./src/DokiDoki.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/DokiDoki.js",
+    "start": "node src/index.js",
     "lint": "eslint ."
   },
   "keywords": [],
@@ -13,12 +13,15 @@
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
+    "ascii-table": "^0.0.9",
     "chalk": "4.1.2",
     "common-tags": "^1.8.2",
+    "discord-api-types": "^0.37.4",
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.1",
     "i18next": "^21.9.1",
     "moment": "^2.29.4",
+    "ms": "^2.1.3",
     "node-fetch": "^3.2.6"
   },
   "repository": {
