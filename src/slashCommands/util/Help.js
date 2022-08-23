@@ -1,18 +1,14 @@
-const { SlashCommandBuilder, EmbedBuilder, Client, Interaction } = require('discord.js');
-const EmbedConfig = require('../configs/embeds.json');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
+const EmbedConfig = require('../../configs/embeds.json');
+const fs = require('fs');
+const path = require('node:path');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('ping')
-		.setDMPermission(false)
-		.setDescription('Replies with Pong!'),
-	/**
-   *
-   * @param {Client} client
-   * @param {Interaction} interaction
-   */
-	async execute(interaction) {
-
+	name: 'help',
+	description: "Replies with a lsit of commands",
+	type: ApplicationCommandType.ChatInput,
+	cooldown: 3000,
+	run: async (client, interaction) => {
 		try {
 
 			const PrepEmbed = new EmbedBuilder()
@@ -22,11 +18,11 @@ module.exports = {
 
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-			const Ping = new Date - interaction.createdTimestamp;
-
 			const PingEmbed = new EmbedBuilder()
-				.setTitle('❯ Ping Response')
-				.setDescription(`🏓 ${Ping}ms`)
+				.setTitle('❯ Current commands')
+
+				.setDescription(`help,userinfo,avatar,ping,info`)
+
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
@@ -43,8 +39,9 @@ module.exports = {
 
 			await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
 
+			console.log(e)
+
 		}
 
 	},
-
 };

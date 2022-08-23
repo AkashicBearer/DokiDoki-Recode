@@ -1,40 +1,63 @@
-const chalk = require('chalk');
+const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
+const chalk = require("chalk");
+const ms = require('ms');
+const client = require('..');
 const config = require('../configs/client.json');
 
-module.exports = {
-	name: 'ready',
-	once: true,
-	execute(client) {
-		if (config.DevStatus === 2) {
-			console.log(chalk.bgGreen.bold(`
+const cooldown = new Collection();
+
+client.on('ready', () => {
+	if (config.DevStatus === 2) {
+		console.log(chalk.bgGreen.bold(`
 █░░ █▀█ █▀▀ █▀▀ █▀▀ █▀▄   █ █▄░█
 █▄▄ █▄█ █▄█ █▄█ ██▄ █▄▀   █ █░▀█`) + chalk.green.bold(`\n${client.user.tag}(${client.user.id})`) + chalk.red.bold('\n⛏Currently on Test Build!⛏'));
 
-			const status = ['/help for more commands', 'v2.0.0 recode', '/info for more info'];
-			setInterval(function() {
-				const RandomStatus = status[Math.floor(Math.random() * status.length)];
-				client.user.setPresence({
-					activity: {
-						name: `${RandomStatus}`,
-					},
-					status: 'online',
-				});
-			}, 20000);
-		}
-		else {
-			console.log(chalk.bgGreen.bold(`
+		const stats = [
+			{ name: `${client.guilds.cache.size} Servers`, type: 2 }, // LISTENING
+			{ name: `${client.channels.cache.size} Channels`, type: 0 }, // PLAYING
+			{ name: `${client.users.cache.size} Users`, type: 3 }, // WATCHING
+			{ name: `/info for information`, type: 2 }
+		]
+		const status = ['online', 'dnd', 'idle'];
+
+		let i = 0;
+		setInterval(() => {
+			if (i >= stats.length) i = 0
+			client.user.setActivity(stats[i])
+			i++;
+		}, 10000);
+
+		let s = 0;
+		setInterval(() => {
+			if (s >= stats.length) s = 0
+			client.user.setStatus(status[s])
+			s++;
+		}, 30000);
+
+	} else {
+		console.log(chalk.bgGreen.bold(`
 █░░ █▀█ █▀▀ █▀▀ █▀▀ █▀▄   █ █▄░█
 █▄▄ █▄█ █▄█ █▄█ ██▄ █▄▀   █ █░▀█`) + chalk.green.bold(`\n${client.user.tag}(${client.user.id})`));
-			const status = ['>help for more info', 'v2.0.0', 'Under a rock!'];
-			setInterval(function() {
-				const RandomStatus = status[Math.floor(Math.random() * status.length)];
-				client.user.setPresence({
-					activity: {
-						name: `${RandomStatus}`,
-					},
-					status: 'online',
-				});
-			}, 20000);
-		}
-	},
-};
+		const stats = [
+			{ name: `${client.guilds.cache.size} Servers`, type: 2 }, // LISTENING
+			{ name: `${client.channels.cache.size} Channels`, type: 0 }, // PLAYING
+			{ name: `${client.users.cache.size} Users`, type: 3 }, // WATCHING
+			{ name: `/info for information`, type: 2 }
+		]
+		const status = ['online', 'dnd', 'idle'];
+
+		let i = 0;
+		setInterval(() => {
+			if (i >= activities.length) i = 0
+			client.user.setActivity(stats[i])
+			i++;
+		}, 5000);
+
+		let s = 0;
+		setInterval(() => {
+			if (s >= activities.length) s = 0
+			client.user.setStatus(status[s])
+			s++;
+		}, 30000);
+	}
+});

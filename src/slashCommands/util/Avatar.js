@@ -1,19 +1,20 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const EmbedConfig = require('../configs/embeds.json');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
+const EmbedConfig = require('../../configs/embeds.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('avatar')
-		.setDescription('Replies with your or a mentioned users avatar')
-		.setDMPermission(false)
-		.addUserOption(option => option.setName('target').setDescription('The user\'s avatar to show')),
-	/**
-   *
-   * @param {Client} client
-   * @param {Interaction} interaction
-   */
-	async execute(interaction) {
-
+	name: 'avatar',
+	description: "Shows selected users avatar",
+	type: ApplicationCommandType.ChatInput,
+	cooldown: 3000,
+	options: [
+		{
+			name: "user",
+			description: "concerned user",
+			type: 6,
+			required: false
+		}
+	],
+	run: async (client, interaction) => {
 		try {
 
 			const PrepEmbed = new EmbedBuilder()
@@ -59,5 +60,4 @@ module.exports = {
 		}
 
 	},
-
 };

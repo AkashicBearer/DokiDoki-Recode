@@ -1,25 +1,25 @@
-const { SlashCommandBuilder, EmbedBuilder, Client, Interaction } = require('discord.js');
-const EmbedConfig = require('../configs/embeds.json');
-const moment = require('moment');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
+const EmbedConfig = require('../../configs/embeds.json');
+const moment = require("moment");
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('userinfo')
-		.setDescription('Replies with the info on a user!')
-		.setDMPermission(false)
-		.addUserOption(option => option.setName('target').setDescription('The user\'s avatar to show')),
-	/**
-   *
-   * @param {Client} client
-   * @param {Interaction} interaction
-   * @param {User} user
-   */
-	async execute(interaction) {
-
+	name: 'userinfo',
+	description: "Shows the requested users userinfo.",
+	type: ApplicationCommandType.ChatInput,
+	cooldown: 3000,
+	options: [
+		{
+			name: "user",
+			description: "concerned user",
+			type: 6,
+			required: false
+		}	
+	],
+	run: async (client, interaction) => {
 		try {
-
-			const user = interaction.options.getUser('target');
-
+			
+			const user = interaction.options.getUser('user');
+			
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -27,6 +27,7 @@ module.exports = {
 
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
+			
 			const UserinfoEmbed = new EmbedBuilder();
 			UserinfoEmbed.setTitle('❯ Information on requested user');
 
@@ -76,5 +77,4 @@ module.exports = {
 		}
 
 	},
-
 };
