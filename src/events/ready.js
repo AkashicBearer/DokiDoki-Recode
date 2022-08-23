@@ -9,6 +9,17 @@ module.exports = {
 			console.log(chalk.bgGreen.bold(`
 █░░ █▀█ █▀▀ █▀▀ █▀▀ █▀▄   █ █▄░█
 █▄▄ █▄█ █▄█ █▄█ ██▄ █▄▀   █ █░▀█`) + chalk.green.bold(`\n${client.user.tag}(${client.user.id})`) + chalk.red.bold('\n⛏Currently on Test Build!⛏'));
+
+			const status = ['/help for more commands', 'v2.0.0 recode', '/info for more info'];
+			setInterval(function() {
+				const RandomStatus = status[Math.floor(Math.random() * status.length)];
+				client.user.setPresence({
+					activity: {
+						name: `${RandomStatus}`,
+					},
+					status: 'online',
+				});
+			}, 20000);
 		}
 		else {
 			console.log(chalk.bgGreen.bold(`

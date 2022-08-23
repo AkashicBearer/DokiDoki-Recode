@@ -1,40 +1,30 @@
-const { SlashCommandBuilder, EmbedBuilder, Collection } = require('discord.js');
-const fs = require('node:fs');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../configs/embeds.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('help')
-		.setDescription('Shows all commands the bot has to offer')
+		.setName('info')
+		.setDescription('Gives information on whats happening right now to the bot.')
 		.setDMPermission(false),
 	/**
    *
    * @param {Client} client
    * @param {Interaction} interaction
-   * @param {Collection} collection
    */
 	async execute(interaction) {
 
 		try {
-
-			const commandFiles = fs.readdirSync(__dirname).filter(file => file.endsWith('.js'));
-			let str = [];
-			for (const file of commandFiles) {
-				const command = require(`./${file}`);
-				str += `\n**${command.data.name}**: ${command.data.description}`;
-			}
-
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-			const HelpEmbed = new EmbedBuilder();
-			HelpEmbed.setDescription(`${str}`);
-			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
-			HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
-			await interaction.editReply({ content: ' ', embeds: [HelpEmbed] });
+			const InfoEmbed = new EmbedBuilder();
+			InfoEmbed.setDescription(`The Bot is currently undergoing a global rework, which is why many commands are missing. Also unless you are already able to run this command, please reinvite the bot with the correct permissions just like every other bot with slash command support\n\nDo note that there is no exact arrival time for the end of the recode, but I\`ll try my best to finish it as soon as pos`);
+			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
+			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+			await interaction.editReply({ content: ' ', embeds: [InfoEmbed] });
 
 		}
 		catch (e) {
@@ -47,7 +37,7 @@ module.exports = {
 			await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
 
 			console.log(e);
-
+const mySecret = process.env['DEV_BOT_TOKEN']
 		}
 
 	},
