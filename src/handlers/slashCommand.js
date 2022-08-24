@@ -26,6 +26,7 @@ module.exports = (client) => {
 			const slashCommand = require(`../slashCommands/${dir}/${file}`);
 			slashCommands.push({
 				name: slashCommand.name,
+				alias: slashCommand.alias ? slashCommand.alias : null,
 				description: slashCommand.description,
 				category: slashCommand.category,
 				type: slashCommand.type,

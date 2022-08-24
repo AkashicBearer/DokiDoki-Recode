@@ -1,9 +1,10 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
 const fetch = require('node-fetch');
+const Token = process.env["KAWAII_TOKEN"]
 
 module.exports = {
-	name: 'amazed',
+	name: 'wakeup',
 	description: 'Sends a gif of someone amazed',
 	type: ApplicationCommandType.ChatInput,
 	category: 'roleplay',
@@ -20,12 +21,12 @@ module.exports = {
 
 			const ImageEmbed = new EmbedBuilder();
 
-			const img = await fetch('https://kawaii.red/api/gif/amazing/token=193021560792154112.xEZWOoQDrC5wIUliv2UG&type=json/')
+			const img = await fetch(`https://kawaii.red/api/gif/wakeup/token=${Token}&type=json/`)
 				.then(res => res.json()).catch(err => {
 					console.log(err);
 				});
 
-			ImageEmbed.setTitle(`❯ ${interaction.user.username} is amazed`);
+			ImageEmbed.setTitle(`❯ ${interaction.user.username} just wokeup`);
 			ImageEmbed.setImage(img.response);
 			ImageEmbed.setFooter({ text: EmbedConfig.EmbedFooterImageAPI, iconURL: EmbedConfig.EmbedFooterIcon });
 			ImageEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);

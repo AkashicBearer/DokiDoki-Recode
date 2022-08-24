@@ -37,8 +37,8 @@ module.exports = {
 			HelpEmbed.setTitle('❯ Recoded Commands');
 
 			HelpEmbed.addFields(
-				{ name: '__Roleplay Commands__', value: `${util}`, inline: false },
-				{ name: '__Utilisation Commands__', value: `${rp}`, inline: false },
+				{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+				{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
 			);
 
 			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });

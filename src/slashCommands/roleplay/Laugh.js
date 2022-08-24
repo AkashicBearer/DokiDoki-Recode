@@ -4,14 +4,24 @@ const fetch = require('node-fetch');
 const Token = process.env["KAWAII_TOKEN"]
 
 module.exports = {
-	name: 'amazed',
-	description: 'Sends a gif of someone  amazed of something',
+	name: 'laugh',
+	description: 'Laugh at someone for doing something stupid',
 	category: 'roleplay',
+	options: [
+		{
+			name: 'user',
+			description: 'target',
+			type: 6,
+			required: true,
+		},
+	],
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
 
 	run: async (client, interaction) => {
 		try {
+			const user = interaction.options.getUser('user');
+
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -21,12 +31,12 @@ module.exports = {
 
 			const ImageEmbed = new EmbedBuilder();
 
-			const img = await fetch(`https://kawaii.red/api/gif/amazed/token=${Token}&type=json/`)
+			const img = await fetch(`https://kawaii.red/api/gif/laugh/token=${Token}&type=json/`)
 				.then(res => res.json()).catch(err => {
 					console.log(err);
 				});
 
-			ImageEmbed.setTitle(`❯ ${interaction.user.username} is amazed`);
+			ImageEmbed.setTitle(`❯ ${interaction.user.username} laugh at ${user.username}`);
 			ImageEmbed.setImage(img.response);
 			ImageEmbed.setFooter({ text: EmbedConfig.EmbedFooterImageAPI, iconURL: EmbedConfig.EmbedFooterIcon });
 			ImageEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
