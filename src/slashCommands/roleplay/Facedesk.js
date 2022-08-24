@@ -4,8 +4,8 @@ const fetch = require('node-fetch');
 const Token = process.env["KAWAII_TOKEN"]
 
 module.exports = {
-	name: 'amazed',
-	description: 'Sends a gif of someone  amazed of something',
+	name: 'facedesk',
+	description: 'Sends a gif of something strogner than a facepalm',
 	category: 'roleplay',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
@@ -21,12 +21,12 @@ module.exports = {
 
 			const ImageEmbed = new EmbedBuilder();
 
-			const img = await fetch(`https://kawaii.red/api/gif/amazed/token=${Token}&type=json/`)
+			const img = await fetch(`https://kawaii.red/api/gif/facedesk/token=${Token}&type=json/`)
 				.then(res => res.json()).catch(err => {
 					console.log(err);
 				});
 
-			ImageEmbed.setTitle(`❯ ${interaction.user.username} is amazed`);
+			ImageEmbed.setTitle(`❯ ${interaction.user.username} is smashing his head on the desk`);
 			ImageEmbed.setImage(img.response);
 			ImageEmbed.setFooter({ text: EmbedConfig.EmbedFooterImageAPI, iconURL: EmbedConfig.EmbedFooterIcon });
 			ImageEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
