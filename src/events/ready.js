@@ -1,5 +1,5 @@
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
-const chalk = require("chalk");
+const chalk = require('chalk');
 const ms = require('ms');
 const client = require('..');
 const config = require('../configs/client.json');
@@ -16,25 +16,26 @@ client.on('ready', () => {
 			{ name: `${client.guilds.cache.size} Servers`, type: 2 }, // LISTENING
 			{ name: `${client.channels.cache.size} Channels`, type: 0 }, // PLAYING
 			{ name: `${client.users.cache.size} Users`, type: 3 }, // WATCHING
-			{ name: `/info for information`, type: 2 }
-		]
+			{ name: '/info for information', type: 2 },
+		];
 		const status = ['online', 'dnd', 'idle'];
 
 		let i = 0;
 		setInterval(() => {
-			if (i >= stats.length) i = 0
-			client.user.setActivity(stats[i])
+			if (i >= stats.length) i = 0;
+			client.user.setActivity(stats[i]);
 			i++;
 		}, 10000);
 
 		let s = 0;
 		setInterval(() => {
-			if (s >= stats.length) s = 0
-			client.user.setStatus(status[s])
+			if (s >= stats.length) s = 0;
+			client.user.setStatus(status[s]);
 			s++;
 		}, 30000);
 
-	} else {
+	}
+	else {
 		console.log(chalk.bgGreen.bold(`
 █░░ █▀█ █▀▀ █▀▀ █▀▀ █▀▄   █ █▄░█
 █▄▄ █▄█ █▄█ █▄█ ██▄ █▄▀   █ █░▀█`) + chalk.green.bold(`\n${client.user.tag}(${client.user.id})`));
@@ -42,21 +43,21 @@ client.on('ready', () => {
 			{ name: `${client.guilds.cache.size} Servers`, type: 2 }, // LISTENING
 			{ name: `${client.channels.cache.size} Channels`, type: 0 }, // PLAYING
 			{ name: `${client.users.cache.size} Users`, type: 3 }, // WATCHING
-			{ name: `/info for information`, type: 2 }
-		]
+			{ name: '/info for information', type: 2 },
+		];
 		const status = ['online', 'dnd', 'idle'];
 
 		let i = 0;
 		setInterval(() => {
-			if (i >= activities.length) i = 0
-			client.user.setActivity(stats[i])
+			if (i >= activities.length) i = 0;
+			client.user.setActivity(stats[i]);
 			i++;
 		}, 5000);
 
 		let s = 0;
 		setInterval(() => {
-			if (s >= activities.length) s = 0
-			client.user.setStatus(status[s])
+			if (s >= activities.length) s = 0;
+			client.user.setStatus(status[s]);
 			s++;
 		}, 30000);
 	}

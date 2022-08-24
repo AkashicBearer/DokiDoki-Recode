@@ -3,16 +3,17 @@ const EmbedConfig = require('../../configs/embeds.json');
 
 module.exports = {
 	name: 'avatar',
-	description: "Shows selected users avatar",
+	description: 'Shows selected users avatar',
+	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
 	options: [
 		{
-			name: "user",
-			description: "concerned user",
+			name: 'user',
+			description: 'concerned user',
 			type: 6,
-			required: false
-		}
+			required: false,
+		},
 	],
 	run: async (client, interaction) => {
 		try {
@@ -48,16 +49,21 @@ module.exports = {
 
 		}
 		catch (e) {
-
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorError}`);
 
-			await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
+			try {
+				await interaction.editReply({ content: ' ', embeds: [ErrorEmbed] });
+			}
+			catch {
+				await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
+			}
+
+			console.log(e);
 
 		}
-
 	},
 };

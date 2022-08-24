@@ -1,25 +1,26 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
-const moment = require("moment");
+const moment = require('moment');
 
 module.exports = {
 	name: 'userinfo',
-	description: "Shows the requested users userinfo.",
+	description: 'Shows the requested users userinfo.',
+	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
 	options: [
 		{
-			name: "user",
-			description: "concerned user",
+			name: 'user',
+			description: 'concerned user',
 			type: 6,
-			required: false
-		}	
+			required: false,
+		},
 	],
 	run: async (client, interaction) => {
 		try {
-			
+
 			const user = interaction.options.getUser('user');
-			
+
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -27,7 +28,7 @@ module.exports = {
 
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-			
+
 			const UserinfoEmbed = new EmbedBuilder();
 			UserinfoEmbed.setTitle('❯ Information on requested user');
 
@@ -65,16 +66,21 @@ module.exports = {
 
 		}
 		catch (e) {
-
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorError}`);
 
-			await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
+			try {
+				await interaction.editReply({ content: ' ', embeds: [ErrorEmbed] });
+			}
+			catch {
+				await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
+			}
+
+			console.log(e);
 
 		}
-
 	},
 };

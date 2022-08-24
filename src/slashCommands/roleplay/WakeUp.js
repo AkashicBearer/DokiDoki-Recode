@@ -1,17 +1,16 @@
-const { ApplicationCommandType, EmbedBuilder, Collection } = require('discord.js');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
-const fs = require('fs');
-const path = require('node:path');
+const fetch = require('node-fetch');
 
 module.exports = {
-	name: 'help',
-	description: 'Replies with a lsit of commands',
-	category: 'util',
+	name: 'amazed',
+	description: 'Sends a gif of someone amazed',
 	type: ApplicationCommandType.ChatInput,
+	category: 'roleplay',
 	cooldown: 3000,
+
 	run: async (client, interaction) => {
 		try {
-
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -19,34 +18,19 @@ module.exports = {
 
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
+			const ImageEmbed = new EmbedBuilder();
 
-			const HelpEmbed = new EmbedBuilder();
+			const img = await fetch('https://kawaii.red/api/gif/amazing/token=193021560792154112.xEZWOoQDrC5wIUliv2UG&type=json/')
+				.then(res => res.json()).catch(err => {
+					console.log(err);
+				});
 
-			const list = [];
-			let util = [];
-			let rp = [];
+			ImageEmbed.setTitle(`❯ ${interaction.user.username} is amazed`);
+			ImageEmbed.setImage(img.response);
+			ImageEmbed.setFooter({ text: EmbedConfig.EmbedFooterImageAPI, iconURL: EmbedConfig.EmbedFooterIcon });
+			ImageEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
-			const cmd = Array.from(client.slashCommands.values());
-			for (const command of cmd) {
-				if (command.category === 'util') {
-					util += `\`${command.name}\`, `;
-				}
-				if (command.category === 'roleplay') {
-					rp += `\`${command.name}\`, `;
-				}
-			}
-
-			HelpEmbed.setTitle('❯ Recoded Commands');
-
-			HelpEmbed.addFields(
-				{ name: '__Roleplay Commands__', value: `${util}`, inline: false },
-				{ name: '__Utilisation Commands__', value: `${rp}`, inline: false },
-			);
-
-			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
-			HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
-
-			await interaction.editReply({ content: ' ', embeds: [HelpEmbed] });
+			await interaction.editReply({ content: ' ', embeds: [ImageEmbed] });
 
 		}
 		catch (e) {
@@ -66,6 +50,5 @@ module.exports = {
 			console.log(e);
 
 		}
-
 	},
 };
