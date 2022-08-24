@@ -1,7 +1,6 @@
-const { ApplicationCommandType, EmbedBuilder, Collection } = require('discord.js');
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
 const fs = require('fs');
-const path = require('node:path');
 
 module.exports = {
 	name: 'help',
@@ -22,7 +21,6 @@ module.exports = {
 
 			const HelpEmbed = new EmbedBuilder();
 
-			const list = [];
 			let util = [];
 			let rp = [];
 

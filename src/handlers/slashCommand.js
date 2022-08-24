@@ -7,7 +7,7 @@ const { Routes } = require('discord-api-types/v9');
 const { REST } = require('@discordjs/rest');
 
 const AsciiTable = require('ascii-table');
-const table = new AsciiTable().setHeading('Slash Commands', 'Stats').setBorder('|', '-', '@', '@');
+const table = new AsciiTable().setHeading('Category', 'Slash Commands', 'Stats').setBorder('|', '-', '@', '@');
 
 const TOKEN = process.env['BOT_TOKEN'];
 const CLIENT_ID = '385115460397694977';
@@ -36,10 +36,10 @@ module.exports = (client) => {
 
 			if (slashCommand.name) {
 				client.slashCommands.set(slashCommand.name, slashCommand);
-				table.addRow(file.split('.js')[0], '✅');
+				table.addRow(slashCommand.category, file.split('.js')[0], '✅');
 			}
 			else {
-				table.addRow(file.split('.js')[0], '⛔');
+				table.addRow(slashCommand.category, file.split('.js')[0], '⛔');
 			}
 		}
 

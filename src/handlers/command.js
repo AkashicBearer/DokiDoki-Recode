@@ -2,9 +2,9 @@ const chalk = require('chalk');
 const fs = require('fs');
 const path = require('node:path');
 
-const AsciiTable = require('ascii-table');
-const table = new AsciiTable();
-table.setHeading('Commands', 'Stats').setBorder('|', '-', '@', '@');
+// const AsciiTable = require('ascii-table');
+// const table = new AsciiTable();
+// table.setHeading('Commands', 'Stats').setBorder('|', '-', '@', '@');
 
 module.exports = (client) => {
 	fs.readdirSync(path.resolve('src/commands')).forEach(dir => {
@@ -19,12 +19,12 @@ module.exports = (client) => {
 						client.aliases.set(alias, command.name);
 					});
 				}
-				table.addRow(command.name, '✅');
+				// table.addRow(command.name, '✅');
 			}
 			else {
-				table.addRow(file, '⛔');
+				// table.addRow(file, '⛔');
 			}
 		});
 	});
-	console.log(chalk.greenBright(table.toString()));
+	// console.log(chalk.greenBright(table.toString()));
 };
