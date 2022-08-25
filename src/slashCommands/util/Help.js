@@ -1,53 +1,100 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
-const fs = require('fs');
 
 module.exports = {
 	name: 'help',
-	description: 'Replies with a lsit of commands',
+	description: 'Send the complete list of commands the bot has to offer',
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
+	options: [
+		{
+			name: 'command',
+			description: 'Command to get information about',
+			type: 3,
+			required: false,
+		},
+	],
 	run: async (client, interaction) => {
 		try {
-
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
 
+			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-
 			const HelpEmbed = new EmbedBuilder();
+			const command = interaction.options.getString('command');
+			const commandArray = Array.from(client.slashCommands.values());
+			const commandKeys = Array.from(client.slashCommands.keys());
 
-			let util = [];
-			let rp = [];
+			if (command) {
+				try {
+					if (commandKeys.includes(command)) {
+						const getCommand = commandArray.find(cmd => cmd.name == command);
 
-			const cmd = Array.from(client.slashCommands.values());
-			for (const command of cmd) {
-				if (command.category === 'util') {
-					util += `\`${command.name}\`, `;
+						HelpEmbed.setTitle('❯ Command Information');
+						HelpEmbed.addFields(
+							{ name: '❯ Command Name ', value: getCommand.name, inline: true },
+							{ name: '❯ Command Group', value: getCommand.category, inline: true },
+							{ name: '❯ Command Information', value: getCommand.description, inline: false }
+						);
+						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+
+					} else {
+
+						HelpEmbed.setTitle('❯ Error ');
+						HelpEmbed.setDescription('The command you\'ve requested doesnt exist');
+						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
+					}
+
 				}
-				if (command.category === 'roleplay') {
-					rp += `\`${command.name}\`, `;
+				catch (e) {
+
+					HelpEmbed.setTitle('❯ Error ');
+					HelpEmbed.setDescription('Something went wrong?');
+					HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
+
+					console.log(e)
+
 				}
 			}
+			else {
 
-			HelpEmbed.setTitle('❯ Recoded Commands');
+				let util = [];
+				let rp = [];
 
-			HelpEmbed.addFields(
-				{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
-				{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
-			);
+				for (const command of commandArray) {
+					if (command.category === 'util') {
+						util += `\`${command.name}\`, `;
+					}
+					if (command.category === 'roleplay') {
+						rp += `\`${command.name}\`, `;
+					}
+				}
+
+				HelpEmbed.setTitle('❯ Recoded Commands');
+
+				HelpEmbed.addFields(
+
+					{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+					{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
+
+				);
+
+				HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+
+			}
 
 			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
-			HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
 			await interaction.editReply({ content: ' ', embeds: [HelpEmbed] });
 
 		}
 		catch (e) {
+
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')

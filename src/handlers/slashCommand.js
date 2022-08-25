@@ -9,12 +9,25 @@ const { REST } = require('@discordjs/rest');
 const AsciiTable = require('ascii-table');
 const table = new AsciiTable().setHeading('Category', 'Slash Commands', 'Stats').setBorder('|', '-', '@', '@');
 
-const TOKEN = process.env['BOT_TOKEN'];
-const CLIENT_ID = '385115460397694977';
+const configs = require('../configs/client.json');
 const GUILD_ID = '389111570162122752';
 
-const rest = new REST({ version: '9' }).setToken(TOKEN);
+let TOKEN;
+let CLIENT_ID;
 
+if (configs.DevStatus === 2) {
+	CLIENT_ID = '435901305030967306';
+}
+else {
+	CLIENT_ID = '385115460397694977';
+}
+if (configs.DevStatus === 2) {
+	TOKEN = process.env['BOT_DEV_TOKEN'];
+}
+else {
+	TOKEN = process.env['BOT_TOKEN'];
+}
+const rest = new REST({ version: '9' }).setToken(TOKEN);
 
 module.exports = (client) => {
 	const slashCommands = [];
@@ -49,17 +62,23 @@ module.exports = (client) => {
 
 	(async () => {
 		try {
-			await rest.put(
-				Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
-				{ body: slashCommands },
-			);
+			if (configs.DevStatus === 2) {
 
-			await rest.put(
-				Routes.applicationCommands(CLIENT_ID),
-				{ body: slashCommands },
-			);
+				await rest.put(
+					Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+					{ body: slashCommands },
+				);
 
-			console.log(chalk.green('Successfully reloaded application (/) commands.'));
+			}
+			else {
+
+				await rest.put(
+					Routes.applicationCommands(CLIENT_ID),
+					{ body: slashCommands },
+				);
+
+				console.log(chalk.green('Successfully reloaded application (/) commands.'));
+			}
 		}
 		catch (error) {
 			console.error(error);

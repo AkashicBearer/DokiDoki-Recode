@@ -1,9 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
 const chalk = require('chalk');
-const ms = require('ms');
 const client = require('..');
 const config = require('../configs/client.json');
 
+// eslint-disable-next-line no-unused-vars
 const cooldown = new Collection();
 
 client.on('ready', () => {
@@ -49,14 +50,14 @@ client.on('ready', () => {
 
 		let i = 0;
 		setInterval(() => {
-			if (i >= activities.length) i = 0;
+			if (i >= stats.length) i = 0;
 			client.user.setActivity(stats[i]);
 			i++;
 		}, 5000);
 
 		let s = 0;
 		setInterval(() => {
-			if (s >= activities.length) s = 0;
+			if (s >= stats.length) s = 0;
 			client.user.setStatus(status[s]);
 			s++;
 		}, 30000);
