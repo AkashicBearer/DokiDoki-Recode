@@ -1,11 +1,11 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
 const fetch = require('node-fetch');
-const Token = process.env["KAWAII_TOKEN"]
+const Token = process.env['KAWAII_TOKEN'];
 
 module.exports = {
 	name: 'puke',
-	alias: "vomit",
+	alias: 'vomit',
 	description: 'Sends a gif of someone vomiting ',
 	category: 'roleplay',
 	type: ApplicationCommandType.ChatInput,
@@ -18,6 +18,7 @@ module.exports = {
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
 
+			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
 			const ImageEmbed = new EmbedBuilder();

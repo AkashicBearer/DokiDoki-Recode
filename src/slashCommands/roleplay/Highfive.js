@@ -1,11 +1,11 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
 const fetch = require('node-fetch');
-const Token = process.env["KAWAII_TOKEN"]
+const Token = process.env['KAWAII_TOKEN'];
 
 module.exports = {
 	name: 'highfive',
-	alias: "hf",
+	alias: 'hf',
 	description: 'highfive someone',
 	category: 'roleplay',
 	options: [
@@ -22,12 +22,13 @@ module.exports = {
 	run: async (client, interaction) => {
 		try {
 			const user = interaction.options.getUser('user');
-			
+
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
 
+			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
 			const ImageEmbed = new EmbedBuilder();

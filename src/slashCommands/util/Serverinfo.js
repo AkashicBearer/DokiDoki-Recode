@@ -1,28 +1,14 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
-const fetch = require('node-fetch');
-const Token = process.env['KAWAII_TOKEN'];
 
 module.exports = {
-	name: 'cute',
-	alias: 'qt',
-	description: 'cuddle someone',
-	category: 'roleplay',
-	options: [
-		{
-			name: 'user',
-			description: 'target',
-			type: 6,
-			required: true,
-		},
-	],
+	name: 'serverinfo',
+	description: 'Shows info about the guild',
+	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
-
 	run: async (client, interaction) => {
 		try {
-			const user = interaction.options.getUser('user');
-
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -31,19 +17,20 @@ module.exports = {
 			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-			const ImageEmbed = new EmbedBuilder();
+			const InfoEmbed = new EmbedBuilder();
 
-			const img = await fetch(`https://kawaii.red/api/gif/cute/token=${Token}&type=json/`)
-				.then(res => res.json()).catch(err => {
-					console.log(err);
-				});
+			InfoEmbed.addFields(
 
-			ImageEmbed.setTitle(`❯ ${interaction.user.username} thinks ${user.username} iz  cutie`);
-			ImageEmbed.setImage(img.response);
-			ImageEmbed.setFooter({ text: EmbedConfig.EmbedFooterImageAPI, iconURL: EmbedConfig.EmbedFooterIcon });
-			ImageEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+				{ name: 'Guild Name', value: interaction.guild.name, inline: true },
+				{ name: 'Guild ID', value: interaction.guild.id, inline: true },
 
-			await interaction.editReply({ content: ' ', embeds: [ImageEmbed] });
+
+				{ name: 'Guild Member Count', value: interaction.guild.memberCount + '/ ' + interaction.guild.maximumMembers, inline: true }
+
+			);
+			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
+			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+			await interaction.editReply({ content: ' ', embeds: [InfoEmbed] });
 
 		}
 		catch (e) {

@@ -13,10 +13,12 @@ module.exports = {
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
+
+			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
 			const InfoEmbed = new EmbedBuilder();
-			InfoEmbed.setDescription('The Bot is currently undergoing a global rework, which is why many commands are missing. Also unless you are already able to run this command, please reinvite the bot with the correct permissions just like every other bot with slash command support\n\nDo note that there is no exact arrival time for the end of the recode, but I`ll try my best to finish it as soon as pos');
+			InfoEmbed.setDescription('The Bot is currently undergoing a global rework, which is why many commands are missing. Also unless you are already able to run this command, please reinvite the bot with the correct permissions just like every other bot with slash command support\n\nDo note that there is no exact arrival time for the end of the recode, but I`ll try my best to finish it as soon as posible.\n\nBot Invite: https://discord.com/oauth2/authorize?client_id=385115460397694977&permissions=0&scope=bot%20applications.commands\nServer Invite: https://discord.gg/gjv2SZU');
 			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
 			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 			await interaction.editReply({ content: ' ', embeds: [InfoEmbed] });

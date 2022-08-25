@@ -26,11 +26,13 @@ module.exports = {
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
 
+			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
-
 
 			const UserinfoEmbed = new EmbedBuilder();
 			UserinfoEmbed.setTitle('❯ Information on requested user');
+
+			console.log(interaction.guild);
 
 			if (user) {
 
@@ -42,7 +44,6 @@ module.exports = {
 					{ name: '❯ Bot', value: user.bot ? 'Yes' : 'No', inline: true },
 
 					{ name: '\u200B', value: '\u200B' },
-
 				);
 				UserinfoEmbed.setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
