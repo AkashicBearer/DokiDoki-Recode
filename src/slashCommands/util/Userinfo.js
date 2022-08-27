@@ -5,6 +5,7 @@ const moment = require('moment');
 module.exports = {
 	name: 'userinfo',
 	description: 'Shows the requested users userinfo.',
+	isOwner: false,
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,

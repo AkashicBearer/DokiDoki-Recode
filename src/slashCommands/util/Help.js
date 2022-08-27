@@ -4,6 +4,7 @@ const EmbedConfig = require('../../configs/embeds.json');
 module.exports = {
 	name: 'help',
 	description: 'Send the complete list of commands the bot has to offer',
+	isOwner: false,
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
@@ -29,6 +30,7 @@ module.exports = {
 			const command = interaction.options.getString('command');
 			const commandArray = Array.from(client.slashCommands.values());
 			const commandKeys = Array.from(client.slashCommands.keys());
+
 
 			if (command) {
 				try {
@@ -65,6 +67,7 @@ module.exports = {
 
 				let util = [];
 				let rp = [];
+				let owner = [];
 
 				for (const command of commandArray) {
 					if (command.category === 'util') {
@@ -73,19 +76,26 @@ module.exports = {
 					if (command.category === 'roleplay') {
 						rp += `\`${command.name}\`, `;
 					}
+					if (command.category === 'owner') {
+						owner += `\`${command.name}\`, `
+					}
 				}
 
 				HelpEmbed.setTitle('❯ Recoded Commands');
 
-				HelpEmbed.addFields(
-
-					{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
-					{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
-
-				);
-
+				if (interaction.user.id === configs.ownerID) {
+					HelpEmbed.addFields(
+						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+						{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
+						{ name: "__Owner Only Commands__", value: `${owner}`, inline: false }
+					);
+				} else {
+					HelpEmbed.addFields(
+						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+						{ name: '__Utilisation Commands__', value: `${util}`, inline: false }
+					);
+				}
 				HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
-
 			}
 
 			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
@@ -94,7 +104,6 @@ module.exports = {
 
 		}
 		catch (e) {
-
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')
@@ -107,10 +116,7 @@ module.exports = {
 			catch {
 				await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
 			}
-
 			console.log(e);
-
 		}
-
 	},
 };

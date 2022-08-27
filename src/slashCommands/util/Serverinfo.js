@@ -4,6 +4,7 @@ const EmbedConfig = require('../../configs/embeds.json');
 module.exports = {
 	name: 'serverinfo',
 	description: 'Shows info about the guild',
+	isOwner: false,
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,

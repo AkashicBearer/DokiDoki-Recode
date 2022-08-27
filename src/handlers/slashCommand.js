@@ -42,6 +42,7 @@ module.exports = (client) => {
 				alias: slashCommand.alias ? slashCommand.alias : null,
 				description: slashCommand.description,
 				category: slashCommand.category,
+				isOwner: slashCommand.isOwner ? slashCommand.isOwner : null,
 				type: slashCommand.type,
 				options: slashCommand.options ? slashCommand.options : null,
 				default_permission: slashCommand.default_permission ? slashCommand.default_permission : null,
