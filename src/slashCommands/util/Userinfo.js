@@ -45,6 +45,7 @@ module.exports = {
 					{ name: '❯ Bot', value: user.bot ? 'Yes' : 'No', inline: true },
 
 					{ name: '\u200B', value: '\u200B' },
+
 				);
 				UserinfoEmbed.setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
@@ -55,7 +56,9 @@ module.exports = {
 					{ name: '❯ Username', value: interaction.user.username, inline: true },
 					{ name: '❯ ID', value: interaction.user.id, inline: true },
 					{ name: '❯ Discord Join Date', value: moment.utc(interaction.user.createdAt).format('DD/MM/YYYY h:mm A'), inline: true },
+
 					{ name: '❯ Bot', value: interaction.user.bot ? 'Yes' : 'No', inline: true },
+
 				);
 				UserinfoEmbed.setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }));
 

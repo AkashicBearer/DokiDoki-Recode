@@ -878,6 +878,17 @@
     "default_member_permissions": null
   },
   {
+    "name": "stats",
+    "alias": null,
+    "description": "Sends information on the bot",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
     "name": "help",
     "alias": null,
     "description": "Send the complete list of commands the bot has to offer",

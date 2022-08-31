@@ -28,6 +28,7 @@
 		"no-irregular-whitespace": "off",
 		"no-useless-escape": "off",
 		"no-var": "error",
+		"no-shadow": "off",
 		"prefer-const": "error",
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],

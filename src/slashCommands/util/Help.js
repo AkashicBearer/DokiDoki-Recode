@@ -1,6 +1,6 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
-const configs = require("../configs/client.json");
+const configs = require('../../configs/client.json');
 
 module.exports = {
 	name: 'help',
