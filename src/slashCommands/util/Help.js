@@ -1,5 +1,6 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
+const configs = require("../configs/client.json");
 
 module.exports = {
 	name: 'help',
@@ -41,12 +42,13 @@ module.exports = {
 						HelpEmbed.addFields(
 							{ name: '❯ Command Name ', value: getCommand.name, inline: true },
 							{ name: '❯ Command Group', value: getCommand.category, inline: true },
-							{ name: '❯ Command Information', value: getCommand.description, inline: false }
+							{ name: '❯ Command Information', value: getCommand.description, inline: false },
 						);
 
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
-					} else {
+					}
+					else {
 						HelpEmbed.setTitle('❯ Error ');
 						HelpEmbed.setDescription('The command you\'ve requested doesnt exist');
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
@@ -72,7 +74,7 @@ module.exports = {
 						rp += `\`${command.name}\`, `;
 					}
 					if (command.category === 'owner') {
-						owner += `\`${command.name}\`, `
+						owner += `\`${command.name}\`, `;
 					}
 				}
 
@@ -82,12 +84,13 @@ module.exports = {
 					HelpEmbed.addFields(
 						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
 						{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
-						{ name: "__Owner Only Commands__", value: `${owner}`, inline: false }
+						{ name: '__Owner Only Commands__', value: `${owner}`, inline: false },
 					);
-				} else {
+				}
+				else {
 					HelpEmbed.addFields(
 						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
-						{ name: '__Utilisation Commands__', value: `${util}`, inline: false }
+						{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
 					);
 				}
 				HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);

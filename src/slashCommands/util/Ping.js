@@ -27,7 +27,8 @@ module.exports = {
 				.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
 			await interaction.editReply({ content: ' ', embeds: [PingEmbed] });
-		} catch (e) {
+		}
+		catch (e) {
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')

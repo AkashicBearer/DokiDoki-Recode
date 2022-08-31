@@ -7,6 +7,7 @@
 	"parserOptions": {
 		"ecmaVersion": "latest"
 	},
+	"ignorePatterns" : ["docs/*"],
 	"rules": {
 		"arrow-spacing": ["warn", { "before": true, "after": true }],
 		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],

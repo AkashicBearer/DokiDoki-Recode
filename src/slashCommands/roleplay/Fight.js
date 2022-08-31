@@ -27,7 +27,7 @@ module.exports = {
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
 				.setColor(`#${EmbedConfig.EmbedColorPrep}`);
-			
+
 			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 

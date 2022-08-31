@@ -1,5 +1,5 @@
 /*
-	Note: DEPRECATED 
+	Note: DEPRECATED
  		Discord removing support for messageContent by  September 1
 */
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');

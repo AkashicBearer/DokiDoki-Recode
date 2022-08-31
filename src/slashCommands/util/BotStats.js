@@ -20,11 +20,11 @@ module.exports = {
 			const InfoEmbed = new EmbedBuilder();
 			InfoEmbed.setDescription(`${client.user.username} Information`);
 			InfoEmbed.addFields(
-				{ name: "Bot Tag", value: client.user.tag, inline: false },
-				{ name: "Bot ID", value: client.user.id, inline: true },
-				{ name: "Server Count", value: client.guilds.cache.size, inline: false },
-				{ name: "Channel Count", value: client.channels.cache.size, inline: true }
-			)
+				{ name: 'Bot Tag', value: client.user.tag, inline: false },
+				{ name: 'Bot ID', value: client.user.id, inline: true },
+				{ name: 'Server Count', value: client.guilds.cache.size, inline: false },
+				{ name: 'Channel Count', value: client.channels.cache.size, inline: true },
+			);
 			InfoEmbed.setThumbnail(client.user.displayAvatarURL());
 			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
 			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);

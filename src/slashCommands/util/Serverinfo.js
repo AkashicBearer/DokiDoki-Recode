@@ -26,7 +26,7 @@ module.exports = {
 				{ name: 'Guild ID', value: interaction.guild.id, inline: true },
 
 
-				{ name: 'Guild Member Count', value: interaction.guild.memberCount + '/ ' + interaction.guild.maximumMembers, inline: true }
+				{ name: 'Guild Member Count', value: interaction.guild.memberCount + '/ ' + interaction.guild.maximumMembers, inline: true },
 
 			);
 			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });

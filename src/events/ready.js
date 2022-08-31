@@ -20,7 +20,7 @@ client.on('ready', () => {
 			{ name: '/info for information', type: 2 },
 			{ name: '/help for command infor', type: 0 },
 			{ name: 'Currently under recode', type: 3 },
-			{ name: 'Dies Ira Dies Illa donna eis requiem', type: 3}
+			{ name: 'Dies Ira Dies Illa donna eis requiem', type: 3},
 		];
 		const status = ['online', 'dnd', 'idle'];
 
@@ -50,7 +50,7 @@ client.on('ready', () => {
 			{ name: '/info for information', type: 2 },
 			{ name: '/help for command infor', type: 0 },
 			{ name: 'Currently under recode', type: 3 },
-			{ name: 'Dies Ira Dies Illa donna eis requiem', type: 3}
+			{ name: 'Dies Ira Dies Illa donna eis requiem', type: 3},
 		];
 		const status = ['online', 'dnd', 'idle'];
 
