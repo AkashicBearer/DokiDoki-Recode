@@ -2,24 +2,13 @@ const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
 
 module.exports = {
-	name: 'avatar',
-	description: 'Shows selected users avatar',
+	name: 'stats',
+	description: 'Sends information on the bot',
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
-	options: [
-		{
-			name: 'user',
-			description: 'concerned user',
-			type: 6,
-			required: false,
-		},
-	],
 	run: async (client, interaction) => {
 		try {
-
-			const user = interaction.options.getUser('user');
-
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -28,25 +17,18 @@ module.exports = {
 			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
 
-			const AvatarEmbed = new EmbedBuilder();
-
-			if (user) {
-
-				AvatarEmbed.setTitle(`❯ ${user.username}`);
-				AvatarEmbed.setImage(user.displayAvatarURL({ dynamic: true, size: 2048 }));
-
-			}
-			else {
-
-				AvatarEmbed.setTitle('❯ Your avatar');
-				AvatarEmbed.setImage(interaction.user.displayAvatarURL({ dynamic: true, size: 2048 }));
-
-			}
-
-			AvatarEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
-			AvatarEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
-
-			await interaction.editReply({ content: ' ', embeds: [AvatarEmbed] });
+			const InfoEmbed = new EmbedBuilder();
+			InfoEmbed.setDescription(`${client.user.username} Information`);
+			InfoEmbed.addFields(
+				{ name: "Bot Tag", value: client.user.tag, inline: false },
+				{ name: "Bot ID", value: client.user.id, inline: true },
+				{ name: "Server Count", value: client.guilds.cache.size, inline: false },
+				{ name: "Channel Count", value: client.channels.cache.size, inline: true }
+			)
+			InfoEmbed.setThumbnail(client.user.displayAvatarURL());
+			InfoEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
+			InfoEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
+			await interaction.editReply({ content: ' ', embeds: [InfoEmbed] });
 
 		}
 		catch (e) {

@@ -7,7 +7,7 @@
 	"DevClientId": "435901305030967306",
 	"Prefix": "<",
 	"messages": {
-		"COOLDOWN_MESSAGE": "You are on `<duration>` cooldown!"
+		"COOLDOWN_MESSAGE": "Please wait for `<duration>`!"
 	},
 	
 	"DevStatus": 2

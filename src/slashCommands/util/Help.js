@@ -43,24 +43,19 @@ module.exports = {
 							{ name: '❯ Command Group', value: getCommand.category, inline: true },
 							{ name: '❯ Command Information', value: getCommand.description, inline: false }
 						);
+
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
 					} else {
-
 						HelpEmbed.setTitle('❯ Error ');
 						HelpEmbed.setDescription('The command you\'ve requested doesnt exist');
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
 					}
-
 				}
 				catch (e) {
-
 					HelpEmbed.setTitle('❯ Error ');
 					HelpEmbed.setDescription('Something went wrong?');
 					HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
-
-					console.log(e)
-
 				}
 			}
 			else {
