@@ -1,0 +1,942 @@
+[
+  {
+    "name": "amazed",
+    "alias": null,
+    "description": "Sends a gif of someone  amazed of something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "baka",
+    "alias": null,
+    "description": "Call someone a baka",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "bite",
+    "alias": null,
+    "description": "bite someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "blush",
+    "alias": null,
+    "description": "Sends a gif of someone blushing",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "blyat",
+    "alias": null,
+    "description": "Blyat",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "boop",
+    "alias": null,
+    "description": "boop someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "clap",
+    "alias": null,
+    "description": "Sends a gif of someone clapping",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "coffee",
+    "alias": null,
+    "description": "Sends a gif of someone drinking coffee",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "confused",
+    "alias": null,
+    "description": "Sends a gif of someone confused",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "cry",
+    "alias": null,
+    "description": "Sends a gif of someone crying",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "cuddle",
+    "alias": null,
+    "description": "cuddle someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "cute",
+    "alias": "qt",
+    "description": "cuddle someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "dance",
+    "alias": null,
+    "description": "Sends a gif of someone dancing",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "dodge",
+    "alias": null,
+    "description": "Sends a gif of someone dodging something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "fbi",
+    "alias": null,
+    "description": "call the fbi on someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "facedesk",
+    "alias": null,
+    "description": "Sends a gif of something strogner than a facepalm",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "facepalm",
+    "alias": null,
+    "description": "Sends a gif of someone who is facepalming(?)",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "fight",
+    "alias": null,
+    "description": "fight someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "happy",
+    "alias": null,
+    "description": "Sends a gif of someone who is happy/excited",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "hide",
+    "alias": null,
+    "description": "Sends a gif of someone who is hiding from something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "highfive",
+    "alias": "hf",
+    "description": "highfive someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "hug",
+    "alias": null,
+    "description": "Give a hug to someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "kill",
+    "alias": null,
+    "description": "\"Kill\" someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "kiss",
+    "alias": null,
+    "description": "Kiss someone you simp",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "laugh",
+    "alias": null,
+    "description": "Laugh at someone for doing something stupid",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "lick",
+    "alias": null,
+    "description": "Lick someone you perverted weeb",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "lonely",
+    "alias": null,
+    "description": "Lonely and depressed...",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "love",
+    "alias": null,
+    "description": "Show someone you love them",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "mad",
+    "alias": null,
+    "description": "Show someone you are mad at them",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "money",
+    "alias": null,
+    "description": "Sends a gif of someone flexing money",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "nom",
+    "alias": null,
+    "description": "Sends a gif of someone nomming on something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "nosebleed",
+    "alias": null,
+    "description": "Sends a gif of someone having a nosebleed",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "ok",
+    "alias": null,
+    "description": "Sends a gif of someone doing the ok handsign",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "party",
+    "alias": null,
+    "description": "Sends a gif of a party ",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "pat",
+    "alias": null,
+    "description": "Give someone a pat",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "peek",
+    "alias": "lurk",
+    "description": "Sends a gif of something peeking at something ",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "poke",
+    "alias": null,
+    "description": "Poke a hole in someone or just wake them up",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "pout",
+    "alias": null,
+    "description": "Sends a gif of someone who is pouting",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "puke",
+    "alias": "vomit",
+    "description": "Sends a gif of someone vomiting ",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "punch",
+    "alias": null,
+    "description": "Punch someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "run",
+    "alias": null,
+    "description": "Sends a gif of someone who is running from something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "salute",
+    "alias": null,
+    "description": "Send respect",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "scared",
+    "alias": null,
+    "description": "Show that you`re afraid of someone`",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "shocked",
+    "alias": null,
+    "description": "Sends a gif of someone who is shocked from something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "shoot",
+    "alias": null,
+    "description": "Shoot someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "shrug",
+    "alias": null,
+    "description": "Sends a gif of someone shrugging",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "sip",
+    "alias": null,
+    "description": "Sends a gif of someone drinking something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "sit",
+    "alias": null,
+    "description": "Sends a gif of someone who is sitting",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "slap",
+    "alias": null,
+    "description": "Slap someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "sleepy",
+    "alias": null,
+    "description": "Sends a gif of someone who is sleepy",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "smoke",
+    "alias": null,
+    "description": "Sends a gif of someone smoking",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "smug",
+    "alias": null,
+    "description": "Smug at someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "stare",
+    "alias": null,
+    "description": "Stare at someone in disbelief",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "tickle",
+    "alias": null,
+    "description": "Tickle someone, tickle fetish?",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "triggered",
+    "alias": null,
+    "description": "Sends a gif of someone who is triggered about something",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "uwu",
+    "alias": null,
+    "description": "Sends a gif of someone doing an UwU",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "wakeup",
+    "alias": null,
+    "description": "Sends a gif of someone amazed",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "wasted",
+    "alias": null,
+    "description": "Sends a gif of someone who feels wasted",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "wave",
+    "alias": null,
+    "description": "Wave at someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "wink",
+    "alias": null,
+    "description": "Wink at someone, you know?",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "yeet",
+    "alias": null,
+    "description": "Yeets someone",
+    "category": "roleplay",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "target",
+        "type": 6,
+        "required": true
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "avatar",
+    "alias": null,
+    "description": "Shows selected users avatar",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "user",
+        "description": "concerned user",
+        "type": 6,
+        "required": false
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "stats",
+    "alias": null,
+    "description": "Sends information on the bot",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "help",
+    "alias": null,
+    "description": "Send the complete list of commands the bot has to offer",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": [
+      {
+        "name": "command",
+        "description": "Command to get information about",
+        "type": 3,
+        "required": false
+      }
+    ],
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "info",
+    "alias": null,
+    "description": "Sends information on the current situation",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "ping",
+    "alias": null,
+    "description": "Replies with pong!.",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  },
+  {
+    "name": "serverinfo",
+    "alias": null,
+    "description": "Shows info about the guild",
+    "category": "util",
+    "isOwner": null,
+    "type": 1,
+    "options": null,
+    "default_permission": null,
+    "default_member_permissions": null
+  }
+]

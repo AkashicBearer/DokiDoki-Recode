@@ -18,6 +18,8 @@ module.exports = {
 	run: async (client, interaction) => {
 		try {
 
+			const user = interaction.options.getUser('user');
+
 			const PrepEmbed = new EmbedBuilder()
 				.setTitle('❯ Executing Given Command')
 				.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon })
@@ -25,8 +27,6 @@ module.exports = {
 
 			// eslint-disable-next-line no-unused-vars
 			const EmbedPrep = await interaction.reply({ content: ' ', embeds: [PrepEmbed] });
-
-			const user = interaction.options.getUser('target');
 
 			const AvatarEmbed = new EmbedBuilder();
 

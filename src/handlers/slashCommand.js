@@ -37,11 +37,21 @@ module.exports = (client) => {
 
 		for (const file of files) {
 			const slashCommand = require(`../slashCommands/${dir}/${file}`);
+			const jsonString = JSON.stringify(Array.from(slashCommands.values()), null, 2);
+			fs.writeFileSync(path.resolve('docs/command.json'), jsonString, err => {
+				if (err) {
+					console.log('Error writing file', err);
+				}
+				else {
+					console.log('Successfully wrote file');
+				}
+			});
 			slashCommands.push({
 				name: slashCommand.name,
 				alias: slashCommand.alias ? slashCommand.alias : null,
 				description: slashCommand.description,
 				category: slashCommand.category,
+				isOwner: slashCommand.isOwner ? slashCommand.isOwner : null,
 				type: slashCommand.type,
 				options: slashCommand.options ? slashCommand.options : null,
 				default_permission: slashCommand.default_permission ? slashCommand.default_permission : null,

@@ -1,9 +1,11 @@
 const { ApplicationCommandType, EmbedBuilder } = require('discord.js');
 const EmbedConfig = require('../../configs/embeds.json');
+const configs = require('../../configs/client.json');
 
 module.exports = {
 	name: 'help',
 	description: 'Send the complete list of commands the bot has to offer',
+	isOwner: false,
 	category: 'util',
 	type: ApplicationCommandType.ChatInput,
 	cooldown: 3000,
@@ -30,6 +32,7 @@ module.exports = {
 			const commandArray = Array.from(client.slashCommands.values());
 			const commandKeys = Array.from(client.slashCommands.keys());
 
+
 			if (command) {
 				try {
 					if (commandKeys.includes(command)) {
@@ -39,32 +42,29 @@ module.exports = {
 						HelpEmbed.addFields(
 							{ name: '❯ Command Name ', value: getCommand.name, inline: true },
 							{ name: '❯ Command Group', value: getCommand.category, inline: true },
-							{ name: '❯ Command Information', value: getCommand.description, inline: false }
+							{ name: '❯ Command Information', value: getCommand.description, inline: false },
 						);
+
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
 
-					} else {
-
+					}
+					else {
 						HelpEmbed.setTitle('❯ Error ');
 						HelpEmbed.setDescription('The command you\'ve requested doesnt exist');
 						HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
 					}
-
 				}
 				catch (e) {
-
 					HelpEmbed.setTitle('❯ Error ');
 					HelpEmbed.setDescription('Something went wrong?');
 					HelpEmbed.setColor(`#${EmbedConfig.EmbedColorError}`);
-
-					console.log(e)
-
 				}
 			}
 			else {
 
 				let util = [];
 				let rp = [];
+				let owner = [];
 
 				for (const command of commandArray) {
 					if (command.category === 'util') {
@@ -73,19 +73,27 @@ module.exports = {
 					if (command.category === 'roleplay') {
 						rp += `\`${command.name}\`, `;
 					}
+					if (command.category === 'owner') {
+						owner += `\`${command.name}\`, `;
+					}
 				}
 
 				HelpEmbed.setTitle('❯ Recoded Commands');
 
-				HelpEmbed.addFields(
-
-					{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
-					{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
-
-				);
-
+				if (interaction.user.id === configs.ownerID) {
+					HelpEmbed.addFields(
+						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+						{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
+						{ name: '__Owner Only Commands__', value: `${owner}`, inline: false },
+					);
+				}
+				else {
+					HelpEmbed.addFields(
+						{ name: '__Roleplay Commands__', value: `${rp}`, inline: false },
+						{ name: '__Utilisation Commands__', value: `${util}`, inline: false },
+					);
+				}
 				HelpEmbed.setColor(`#${EmbedConfig.EmbedColorReady}`);
-
 			}
 
 			HelpEmbed.setFooter({ text: EmbedConfig.EmbedFooter, iconURL: EmbedConfig.EmbedFooterIcon });
@@ -94,7 +102,6 @@ module.exports = {
 
 		}
 		catch (e) {
-
 			const ErrorEmbed = new EmbedBuilder()
 				.setTitle('❯ An Error has occured!')
 				.setDescription('Some sort of error has occured please report it to the developer team\ni.e Command x gave me an error when I did x')
@@ -107,10 +114,7 @@ module.exports = {
 			catch {
 				await interaction.reply({ content: ' ', embeds: [ErrorEmbed] });
 			}
-
 			console.log(e);
-
 		}
-
 	},
 };

@@ -1,13 +1,13 @@
 {
 	
-	"OwnerID": ["193021560792154112"],
+	"ownerID": ["193021560792154112"],
 	"MasterGuild": "389111570162122752",
 	"guildId": "389111570162122752",
 	"clientId" : "385115460397694977",
 	"DevClientId": "435901305030967306",
 	"Prefix": "<",
 	"messages": {
-		"COOLDOWN_MESSAGE": "You are on `<duration>` cooldown!"
+		"COOLDOWN_MESSAGE": "Please wait for `<duration>`!"
 	},
 	
 	"DevStatus": 1

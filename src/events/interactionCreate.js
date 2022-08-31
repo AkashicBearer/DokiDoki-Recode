@@ -16,6 +16,7 @@ client.on('interactionCreate', async interaction => {
 	if (!interaction.type == 2) return;
 
 	if (!slashCommand) return client.slashCommands.delete(interaction.commandName);
+
 	try {
 		if (slashCommand.cooldown) {
 			if (cooldown.has(`slash-${slashCommand.name}${interaction.user.id}`)) return interaction.reply({ content: config.messages['COOLDOWN_MESSAGE'].replace('<duration>', ms(cooldown.get(`slash-${slashCommand.name}${interaction.user.id}`) - Date.now(), { long: true })) });

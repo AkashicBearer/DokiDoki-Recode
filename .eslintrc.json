@@ -7,6 +7,7 @@
 	"parserOptions": {
 		"ecmaVersion": "latest"
 	},
+	"ignorePatterns" : ["docs/*"],
 	"rules": {
 		"arrow-spacing": ["warn", { "before": true, "after": true }],
 		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
@@ -27,6 +28,7 @@
 		"no-irregular-whitespace": "off",
 		"no-useless-escape": "off",
 		"no-var": "error",
+		"no-shadow": "off",
 		"prefer-const": "error",
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
